@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+var cors = require('cors');
 
 // Get our API routes
-const api = require('./server/routes/api');
+const api = require('./server/routes/jobs/api');
 
 mongoose.connect('mongodb://localhost/dbseekjob');
 
 const app = express();
 
+app.use(cors());
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

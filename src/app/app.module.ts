@@ -10,12 +10,19 @@ import { PostsService } from "./posts/services/posts.service";
 
 import { UsersComponent } from './users/users.component';
 import {UsersService } from './users/services/users.service';
+import { JobsComponent } from './jobs/jobs.component';
+import { RecruiterComponent } from './jobs/recruiter/recruiter.component';
+import { JobseekerComponent } from './jobs/jobseeker/jobseeker.component';
+import { JobslistComponent } from './jobs/jobslist/jobslist.component';
+import { UpdJobComponent } from './jobs/upd-job/upd-job.component';
+import { JobsService } from './jobs/services/jobs.service';
+
 
 // Define the routes
 const ROUTES = [
   {
     path: '',
-    redirectTo: 'posts',
+    redirectTo: 'jobs',
     pathMatch: 'full'
   },
   {
@@ -23,8 +30,20 @@ const ROUTES = [
     component: PostsComponent
   },
   {
-    path: 'users',
-    component: UsersComponent
+    path: 'jobs',
+    component: JobsComponent
+  },
+  {
+    path: 'jobs/recruiter',
+    component: RecruiterComponent
+  },
+  {
+    path: 'jobs/recruiter/updjob/:id?',
+    component: UpdJobComponent,
+  },
+  {
+    path: 'jobs/jobseeker',
+    component: JobseekerComponent
   }
 ];
 
@@ -32,7 +51,12 @@ const ROUTES = [
   declarations: [
     AppComponent,
     PostsComponent,
-    UsersComponent
+    UsersComponent,
+    JobsComponent,
+    RecruiterComponent,
+    JobseekerComponent,
+    JobslistComponent,
+    UpdJobComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +64,7 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [PostsService, UsersService],
+  providers: [JobsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

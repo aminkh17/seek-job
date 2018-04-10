@@ -1,0 +1,17 @@
+<div>
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Avaialable Jobs</h1>
+        
+        <p class="lead">
+            <button class="btn btn-secondary float-right" (click)="addNew()">Add New</button>
+            All available jobs listed here.
+        </p>
+      </div>
+    </div>
+    <div class="wall">
+    <jobs-list (onSelected)="onSelected($event)"></jobs-list>
+  </div>
+
+  
+</div>
