@@ -10,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UpdJobComponent implements OnInit {
   @Input() job: Job;
+  JobJson: any;
 
   constructor(private router: Router, private jobsService: JobsService, private route: ActivatedRoute  ) { }
 
@@ -41,4 +42,12 @@ export class UpdJobComponent implements OnInit {
     this.jobsService.deleteOne(this.job)
       .subscribe(() => this.back());
   }
+
+  fileChange(event) {
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0) {
+      this.jobsService.upload(fileList[0])
+        .subscribe(jobjson => this.JobJson = jobjson);
+    }
+}
 }

@@ -53,7 +53,11 @@ router.delete(API+'/:id', (req, res)=>{
         console.log('Job deleted');
         res.status(200).json(id);
     });
-})
+});
+
+router.post(API+'/upload/', (req, res)=>{
+    
+});
 
 
 module.exports = router;

@@ -1,5 +1,5 @@
 import { Job } from './../job';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, RequestOptionsArgs, RequestMethod, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
@@ -47,8 +47,22 @@ export class JobsService {
       .map(res => res.json());
   }
 
-  upload(){
+  upload(fileData){
+    let file: File = fileData;
+    let formData:FormData = new FormData();
+    formData.append('uploadFile', file, file.name);
+    const headers = new Headers();
+    /** In Angular 5, including the header Content-Type can invalidate your request */
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    const options = new RequestOptions(
+      {  
+        headers: headers
+      });
     
+
+    return this.http.post(API+'upload', formData, options)
+        .map(res => res.json())
   }
 
 }
