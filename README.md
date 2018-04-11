@@ -22,7 +22,7 @@ Navigate to `./uploads` to see a sample PDF file here.
  - Then, clone this repo `git clone https://github.com/aminkh17/seek-job.git [Your New Folder Name]`
  - Run `npm install` in terminal from root folder of the new project to setup dependencies
  - At this moment application will work fine, but! By default it supports only `.TXT` and `.HTML` text formats. For better performance you should install at least support of `.PDF` (and `.DOC`). Here is instructions, how to do it from [textract README](https://github.com/dbashford/textract#requirements) file:
-	 - `PDF` extraction requires `pdftotext` be installed, [link](http://www.foolabs.com/xpdf/download.html). Or you can add following folder to your PATH folder on Windows `CMD> PATH %PATH%;[Full PATH OF THE BIN FOLDER]
+	 - `PDF` extraction requires `pdftotext` be installed, [link](http://www.foolabs.com/xpdf/download.html). Or you can add following folder to your PATH folder on Windows `CMD> PATH %PATH%;[Full PATH OF THE BIN FOLDER]`
 	 - `DOC` extraction requires `catdoc` be installed, [link](http://www.wagner.pp.ru/~vitus/software/catdoc/), unless on OSX in which case textutil (installed by default) is used.
 	 - `DOCX` extraction requires `unzip` be available (e.g. `sudo apt-get install unzip` for Ubuntu)
 		
