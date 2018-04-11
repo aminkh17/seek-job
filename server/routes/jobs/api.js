@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 var Job = require('../../models/job/job.js');
+const upload = require('../../helpers/uploader');
+const parseIt = require('../../helpers/parseIt');
 
 const API = '/jobs';
 
@@ -55,9 +57,19 @@ router.delete(API+'/:id', (req, res)=>{
     });
 });
 
-router.post(API+'/upload/', (req, res)=>{
-    
-});
+router.post(API+'/upload/', function(req, res){
+     //;
+    var upl = upload.single('uploadFile');
+    upl(req, res, function(err){
+        if(err) throw err;
+        console.log("upload finished");
+        console.log(req.file);
+        var ret = parseIt.parseResume(req.file.path, './compiled', function(jsonfile){
+            res.status(200).json(jsonfile);
+        })
 
+    })
+
+});
 
 module.exports = router;

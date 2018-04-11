@@ -1,6 +1,7 @@
 import { JobsService } from './../services/jobs.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Job } from './../job';
+import { ViewJobComponent } from '../view-job/view-job.component';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -10,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UpdJobComponent implements OnInit {
   @Input() job: Job;
-  JobJson: any;
+ 
 
   constructor(private router: Router, private jobsService: JobsService, private route: ActivatedRoute  ) { }
 
@@ -43,11 +44,4 @@ export class UpdJobComponent implements OnInit {
       .subscribe(() => this.back());
   }
 
-  fileChange(event) {
-    let fileList: FileList = event.target.files;
-    if(fileList.length > 0) {
-      this.jobsService.upload(fileList[0])
-        .subscribe(jobjson => this.JobJson = jobjson);
-    }
-}
 }

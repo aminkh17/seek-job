@@ -1,0 +1,43 @@
+<div class="containter">
+    
+      <div class="card-body">
+          <h5 class="card-title">Upload Candidate CV</h5>
+          <div class="card-text">
+              <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" (change)="fileChange($event)" accept=".pdf,.doc,.docx" class="custom-file-input" id="inputGroupFile04">
+                    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                  </div>
+        
+                </div>
+  
+          </div>
+          <div class="clearfix"></div>
+          <a class="btn btn-link" href="/jobs" role="button">Back</a>
+      </div>
+</div>
+
+<div class="containter" *ngIf="cand.name">
+
+  <div class="row">
+
+    <div class="">
+      <div class="containter p5">
+        <div class="card border-default mb-3">
+            <div class="card-header bg-transparent ">{{cand.email}}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{cand.name}}</h5>
+                <p class="card-text"><b>Summary</b>{{cand.summary}}</p>                
+            </div>
+            <div class="card-footer bg-transparent"><b>Experience</b>{{cand.experience}}</div>
+            <div class="card-body">
+ 
+                <p class="card-text"><b>Education</b>{{cand.education}}</p>                
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

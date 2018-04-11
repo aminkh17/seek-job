@@ -33,6 +33,10 @@ export class RecruiterComponent implements OnInit {
     this.updateJob();
   }
 
+  candidates(): void{
+    this.router.navigateByUrl('jobs/candidates');
+  }
+
   edt(): void {
     console.log(this.selected);
     this.updateJob(this.selected)

@@ -29,36 +29,19 @@
       </div>
     
       <div class="card-body">
-        <h5 class="card-title">Or Upload CV</h5>
-        <div class="card-text">
-            <div class="input-group">
-                <div class="custom-file">
-                  <input type="file" (change)="fileChange($event)" accept=".pdf,.doc,.docx" class="custom-file-input" id="inputGroupFile04">
-                  <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                </div>
-      
-              </div>
+        
+    
 
-        </div>
-        <div class="clearfix"></div>
-        <div class="mt-5">
+  
           <button type="button" (click)="back()" class="btn btn-default">Back</button>
           <button type="button" *ngIf="job._id" (click)="delete()" class="btn btn-danger">Delete</button>
           <button type="button" (click)="save()" class="btn btn-success ">Save</button>
-        </div>
       </div>
     </div>
       
     </div>
     <div class="col">
- 
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title text-capitalize">{{ job.Title}}</h4>
-            <h5 class="card-subtitle mb-2 text-muted text-capitalize">{{ job.Location}}</h5>
-            <p class="card-text text-capitalize">{{ job.Description }}</p>
-          </div>
-        </div>
+      <view-job [job]="job"></view-job>
  
     </div>
   </div>

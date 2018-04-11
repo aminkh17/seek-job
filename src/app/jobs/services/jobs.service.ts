@@ -49,12 +49,9 @@ export class JobsService {
 
   upload(fileData){
     let file: File = fileData;
-    let formData:FormData = new FormData();
+    let formData: FormData = new FormData();
     formData.append('uploadFile', file, file.name);
     const headers = new Headers();
-    /** In Angular 5, including the header Content-Type can invalidate your request */
-    headers.append('Content-Type', 'multipart/form-data');
-    headers.append('Accept', 'application/json');
     const options = new RequestOptions(
       {  
         headers: headers

@@ -16,6 +16,9 @@ import { JobseekerComponent } from './jobs/jobseeker/jobseeker.component';
 import { JobslistComponent } from './jobs/jobslist/jobslist.component';
 import { UpdJobComponent } from './jobs/upd-job/upd-job.component';
 import { JobsService } from './jobs/services/jobs.service';
+import { CandidatesComponent } from './candidates/candidates.component';
+import { ViewJobComponent } from './jobs/view-job/view-job.component';
+import { JobdetailsComponent } from './jobdetails/jobdetails.component';
 
 
 // Define the routes
@@ -44,6 +47,14 @@ const ROUTES = [
   {
     path: 'jobs/jobseeker',
     component: JobseekerComponent
+  },
+  {
+    path: 'jobs/candidates',
+    component: CandidatesComponent
+  },
+  {
+    path: 'jobs/jobdetails/:id',
+    component: JobdetailsComponent
   }
 ];
 
@@ -56,7 +67,10 @@ const ROUTES = [
     RecruiterComponent,
     JobseekerComponent,
     JobslistComponent,
-    UpdJobComponent
+    UpdJobComponent,
+    CandidatesComponent,
+    ViewJobComponent,
+    JobdetailsComponent
   ],
   imports: [
     BrowserModule,

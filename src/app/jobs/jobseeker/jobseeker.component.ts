@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { Job } from './../job';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobseekerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  selected: Job;
+
+  onSelected(event){
+    this.selected = event.job;
+    if(!this.selected) return;
+    this.router.navigateByUrl('/jobs/jobdetails/'+this.selected._id);
+
   }
 
 }
