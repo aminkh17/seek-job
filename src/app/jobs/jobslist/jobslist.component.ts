@@ -25,4 +25,8 @@ export class JobslistComponent implements OnInit {
     this.job = job;
     this.onSelected.emit({job: job});
   }
+
+  isOpen(job: Job){
+    return job.Status == 'Open';
+  }
 }

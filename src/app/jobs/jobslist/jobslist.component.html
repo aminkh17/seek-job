@@ -2,12 +2,14 @@
   <div class="row">
     <div class="col" *ngFor="let job of jobs">
  
-        <div class="card ">
+        <div class="card" [ngClass]="{'border-success': isOpen(job)}">
             <div class="card-body">
               <h4 class="card-title text-capitalize">{{ job.Title}}</h4>
               <h5 class="card-subtitle mb-2 text-muted text-capitalize">{{ job.Location}}</h5>
               <p class="card-text text-capitalize">{{ job.Description | slice:0:10}}</p>
+              
               <button type="button" class="btn btn-light float-right" (click)="select(job)">Select</button>
+              
             </div>
           </div>
    

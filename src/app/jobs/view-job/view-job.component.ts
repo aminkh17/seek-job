@@ -13,5 +13,8 @@ export class ViewJobComponent implements OnInit {
   ngOnInit() {
   }
 
+  isOpen(){
+    return this.job.Status == "Open";
+  }
 
 }
